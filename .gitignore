@@ -1,0 +1,11 @@
+node_modules
+.next
+.DS_Store
+.env*
+dist
+server/dist
+web/.next
+web/node_modules
+web/.env.local
+server/.env
+supabase/.temp
