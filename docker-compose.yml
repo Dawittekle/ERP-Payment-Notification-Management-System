@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # QINDE ERP — Frontend UI Dashboard (React + TypeScript + Vite)
+  qinde-frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    container_name: qinde-erp-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_BASE_URL=http://localhost:8080/api/v1
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  # QINDE ERP — Backend Core Service (Spring Boot Modular Monolith - Target)
+  qinde-backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: qinde-erp-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_HOST=qinde-postgres
+      - DB_PORT=5432
+      - DB_NAME=qinde_erp
+      - DB_USER=qinde_admin
+      - DB_PASSWORD=qinde_secure_password_2026
+    depends_on:
+      - qinde-postgres
+    restart: unless-stopped
+
+  # PostgreSQL Operational Database
+  qinde-postgres:
+    image: postgres:16-alpine
+    container_name: qinde-erp-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=qinde_erp
+      - POSTGRES_USER=qinde_admin
+      - POSTGRES_PASSWORD=qinde_secure_password_2026
+    volumes:
+      - qinde_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  qinde_pgdata:
+    driver: local

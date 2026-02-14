@@ -9,4 +9,3 @@ web/node_modules
 web/.env.local
 server/.env
 supabase/.temp
-docs/
