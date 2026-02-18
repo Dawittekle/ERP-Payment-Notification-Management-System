@@ -1,0 +1,145 @@
+/* ==============================================================================
+   QINDE ERP — Design Tokens System (Source of Truth: QINDE_DESIGN.md)
+   Brand: QINDE (ቅንደ) — Business, in order.
+   ============================================================================== */
+
+:root {
+  /* --- Brand Identity Palette --- */
+  --color-brand-navy: #102A43;        /* Main brand structure, sidebar, strong actions */
+  --color-brand-navy-hover: #173F5F;  /* Hover & active navy variation */
+  --color-brand-green: #198754;       /* Primary accent, success, positive action pulse */
+  --color-brand-gold: #D9A441;        /* Small brand highlights only */
+
+  /* --- Surface Palette (Light Theme First) --- */
+  --color-surface-canvas: #F7F9FC;    /* Main background canvas */
+  --color-surface-card: #FFFFFF;      /* Card & panel surfaces */
+  --color-surface-subtle: #F1F4F8;    /* Secondary background tone */
+  --color-surface-hover: #EEF2F6;     /* Interactive row/element hover */
+
+  /* --- Border & Divider Tokens --- */
+  --color-border-default: #E4E7EC;    /* Default border & divider */
+  --color-border-subtle: #F0F2F5;     /* Subtle panel divider */
+  --color-border-focus: #102A43;      /* Focus ring indicator */
+
+  /* --- Typography Tokens --- */
+  --color-text-primary: #172033;      /* High contrast primary text */
+  --color-text-secondary: #667085;    /* Muted secondary body text */
+  --color-text-disabled: #98A2B3;     /* Disabled state text */
+  --color-text-inverse: #FFFFFF;      /* Text on navy background */
+
+  /* --- Semantic Status Tokens (Icon + Label + Color rule) --- */
+  --color-status-success: #16A34A;    /* Paid / Healthy / Verified */
+  --color-status-success-bg: #F0FDF4; /* Success badge background */
+  --color-status-warning: #D97706;    /* Pending / Review / Attention */
+  --color-status-warning-bg: #FFFBEB; /* Warning badge background */
+  --color-status-error: #DC2626;      /* Failed / Cancelled / Risk */
+  --color-status-error-bg: #FEF2F2;   /* Error badge background */
+  --color-status-info: #2563EB;       /* Informational state */
+  --color-status-info-bg: #EFF6FF;    /* Info badge background */
+
+  /* --- Typography Families --- */
+  --font-family-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-amharic: 'Noto Sans Ethiopic', 'Inter', sans-serif;
+  --font-family-technical: 'JetBrains Mono', 'Geist Mono', monospace;
+
+  /* --- Type Scale & Weights --- */
+  --font-size-title-page: 24px;
+  --font-size-title-section: 18px;
+  --font-size-title-card: 15px;
+  --font-size-body: 14px;
+  --font-size-dense: 13px;
+  --font-size-caption: 12px;
+  --font-size-kpi: 28px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* --- Spacing Scale (4px Base Grid) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* --- Border Radii (Shape Language) --- */
+  --radius-micro: 6px;
+  --radius-input: 10px;
+  --radius-standard: 12px;
+  --radius-card: 14px;
+  --radius-modal: 20px;
+  --radius-pill: 9999px;
+
+  /* --- Elevation & Shadows --- */
+  --shadow-subtle: 0 1px 3px rgba(16, 42, 67, 0.05);
+  --shadow-card: 0 4px 12px rgba(16, 42, 67, 0.06);
+  --shadow-overlay: 0 12px 32px rgba(16, 42, 67, 0.16);
+
+  /* --- Motion & Transitions --- */
+  --motion-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-standard: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Layout & Z-Index --- */
+  --sidebar-width-expanded: 248px;
+  --sidebar-width-collapsed: 72px;
+  --topbar-height: 64px;
+
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-dropdown: 200;
+  --z-overlay: 500;
+  --z-modal: 1000;
+  --z-toast: 1500;
+}
+
+/* --- Dark Theme Tokens (Optional Support Pass) --- */
+[data-theme="dark"] {
+  --color-surface-canvas: #0B1624;
+  --color-surface-card: #10202F;
+  --color-surface-subtle: #162B3D;
+  --color-surface-hover: #1E374E;
+  --color-border-default: #2A3E50;
+  --color-text-primary: #F7F9FC;
+  --color-text-secondary: #98A2B3;
+  --color-text-disabled: #667085;
+}
+
+/* Global Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  background-color: var(--color-surface-canvas);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar for Dense Tables and Sidebar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
