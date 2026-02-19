@@ -183,7 +183,8 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 
 | Phase | Description | Status | Target Completion |
 |---|---|---|---|
-| **Phase 1** | Foundation & Shell Architecture | ⏳ Planned | Phase 1 Pass |
+| **Phase 0** | Enterprise Repository Setup & Docker Operations | ✅ Completed | Pass |
+| **Phase 1** | Foundation & Shell Architecture | ✅ Completed | Pass |
 | **Phase 2** | Design Tokens & Shared ERP Component Suite | ⏳ Planned | Phase 2 Pass |
 | **Phase 3** | Auth, Identity & Operational Cockpits | ⏳ Planned | Phase 3 Pass |
 | **Phase 4** | Core Financial Workspaces (Customers, Invoices, Payments) | ⏳ Planned | Phase 4 Pass |
