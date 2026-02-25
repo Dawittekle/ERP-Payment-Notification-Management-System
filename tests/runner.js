@@ -1,6 +1,6 @@
 /**
  * QINDE ERP — Automated & Smoke Test Runner
- * Validates project structure, design system tokens, layout compliance, and frontend bundle integrity.
+ * Validates project structure, design system tokens, layout compliance, and frontend component suite integrity.
  */
 
 const fs = require('fs');
@@ -61,6 +61,21 @@ assert(fs.existsSync(path.join(componentsDir, 'layout/ERPSidebar.tsx')), 'ERPSid
 assert(fs.existsSync(path.join(componentsDir, 'layout/ERPTopBar.tsx')), 'ERPTopBar component exists');
 assert(fs.existsSync(path.join(componentsDir, 'overlay/ERPCommandCenter.tsx')), 'ERPCommandCenter component exists');
 assert(fs.existsSync(path.join(componentsDir, 'brand/QindeLogo.tsx')), 'QindeLogo brand SVG component exists');
+
+// 5. Phase 2 Component Suite Verification
+console.log('\n🔍 Group 5: Phase 2 Shared Component Suite Verification');
+assert(fs.existsSync(path.join(componentsDir, 'ui/Button.tsx')), 'Button primitive component exists');
+assert(fs.existsSync(path.join(componentsDir, 'ui/Input.tsx')), 'Input primitive component exists');
+assert(fs.existsSync(path.join(componentsDir, 'ui/Badge.tsx')), 'Badge primitive component exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPMetric.tsx')), 'ERPMetric KPI stat component exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPStatus.tsx')), 'ERPStatus icon+label+color badge component exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPMoney.tsx')), 'ERPMoney financial currency formatter exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPTable.tsx')), 'ERPTable high-density data table exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPFilterBar.tsx')), 'ERPFilterBar filter toolbar exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPObjectHeader.tsx')), 'ERPObjectHeader master-detail header exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPTimeline.tsx')), 'ERPTimeline transaction signal rail exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPEmptyState.tsx')), 'ERPEmptyState placeholder component exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPSkeleton.tsx')), 'ERPSkeleton loading placeholder component exists');
 
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
