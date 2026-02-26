@@ -2,6 +2,8 @@ import React from 'react';
 import { LucideIcon, ArrowUpRight, ArrowDownRight, Minus } from 'lucide-react';
 import { ERPMoney } from './ERPMoney';
 
+export type MetricIconVariant = 'navy' | 'green' | 'warning' | 'info';
+
 interface ERPMetricProps {
   title: string;
   value: number | string;
@@ -13,7 +15,7 @@ interface ERPMetricProps {
     label?: string;
   };
   icon?: LucideIcon;
-  iconVariant?: 'navy' | 'green' | 'warning' | 'info';
+  iconVariant?: MetricIconVariant;
   subtitle?: string;
 }
 
@@ -31,12 +33,14 @@ export const ERPMetric: React.FC<ERPMetricProps> = ({
   iconVariant = 'navy',
   subtitle,
 }) => {
-  const iconColors: Record<string, { bg: string; text: string }> = {
+  const iconColors: Record<MetricIconVariant, { bg: string; text: string }> = {
     navy: { bg: 'rgba(16, 42, 67, 0.08)', text: 'var(--color-brand-navy)' },
     green: { bg: 'rgba(25, 135, 84, 0.1)', text: 'var(--color-brand-green)' },
     warning: { bg: 'rgba(217, 119, 6, 0.1)', text: 'var(--color-status-warning)' },
     info: { bg: 'rgba(37, 99, 235, 0.1)', text: 'var(--color-status-info)' },
   };
+
+  const activeColor = iconColors[iconVariant] || iconColors.navy;
 
   return (
     <div
@@ -70,8 +74,8 @@ export const ERPMetric: React.FC<ERPMetricProps> = ({
             style={{
               padding: '8px',
               borderRadius: 'var(--radius-micro)',
-              backgroundColor: iconColors[iconVariant].bg,
-              color: iconColors[iconVariant].text,
+              backgroundColor: activeColor.bg,
+              color: activeColor.text,
               display: 'flex',
             }}
           >

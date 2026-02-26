@@ -24,14 +24,14 @@ export const ERPTimeline: React.FC<ERPTimelineProps> = ({ events }) => {
       {events.map((evt, idx) => {
         const isLast = idx === events.length - 1;
 
-        const statusColors = {
+        const statusColors: Record<TimelineEvent['status'], { dot: string; line: string }> = {
           completed: { dot: 'var(--color-brand-green)', line: 'var(--color-brand-green)' },
           current: { dot: 'var(--color-brand-navy)', line: 'var(--color-border-default)' },
           pending: { dot: '#CBD5E1', line: '#E2E8F0' },
           failed: { dot: 'var(--color-status-error)', line: 'var(--color-status-error)' },
         };
 
-        const currentColors = statusColors[evt.status];
+        const currentColors = statusColors[evt.status] || statusColors.pending;
 
         return (
           <div key={evt.id} style={{ display: 'flex', gap: '16px' }}>

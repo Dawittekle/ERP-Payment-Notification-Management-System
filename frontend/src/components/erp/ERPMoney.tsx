@@ -34,12 +34,14 @@ export const ERPMoney: React.FC<ERPMoneyProps> = ({
     maximumFractionDigits: showDecimals ? 2 : 0,
   }).format(absVal);
 
-  const sizeStyles: Record<string, React.CSSProperties> = {
+  const sizeStyles: Record<'sm' | 'md' | 'lg' | 'kpi', React.CSSProperties> = {
     sm: { fontSize: '13px', fontWeight: 600 },
     md: { fontSize: '14px', fontWeight: 600 },
     lg: { fontSize: '18px', fontWeight: 700 },
     kpi: { fontSize: '28px', fontWeight: 700 },
   };
+
+  const activeSizeStyle = sizeStyles[size] || sizeStyles.md;
 
   return (
     <span
@@ -53,7 +55,7 @@ export const ERPMoney: React.FC<ERPMoneyProps> = ({
         color: color || 'var(--color-text-primary)',
         letterSpacing: '-0.01em',
         whiteSpace: 'nowrap',
-        ...sizeStyles[size],
+        ...activeSizeStyle,
         ...style,
       }}
       className={className}
