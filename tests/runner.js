@@ -1,6 +1,6 @@
 /**
  * QINDE ERP — Automated & Smoke Test Runner
- * Validates project structure, design system tokens, layout compliance, and frontend component suite integrity.
+ * Validates project structure, design system tokens, layout compliance, component suite, and Auth/Role Cockpits integrity.
  */
 
 const fs = require('fs');
@@ -62,7 +62,7 @@ assert(fs.existsSync(path.join(componentsDir, 'layout/ERPTopBar.tsx')), 'ERPTopB
 assert(fs.existsSync(path.join(componentsDir, 'overlay/ERPCommandCenter.tsx')), 'ERPCommandCenter component exists');
 assert(fs.existsSync(path.join(componentsDir, 'brand/QindeLogo.tsx')), 'QindeLogo brand SVG component exists');
 
-// 5. Phase 2 Component Suite Verification
+// 5. Phase 2 Shared Component Suite Verification
 console.log('\n🔍 Group 5: Phase 2 Shared Component Suite Verification');
 assert(fs.existsSync(path.join(componentsDir, 'ui/Button.tsx')), 'Button primitive component exists');
 assert(fs.existsSync(path.join(componentsDir, 'ui/Input.tsx')), 'Input primitive component exists');
@@ -76,6 +76,14 @@ assert(fs.existsSync(path.join(componentsDir, 'erp/ERPObjectHeader.tsx')), 'ERPO
 assert(fs.existsSync(path.join(componentsDir, 'erp/ERPTimeline.tsx')), 'ERPTimeline transaction signal rail exists');
 assert(fs.existsSync(path.join(componentsDir, 'erp/ERPEmptyState.tsx')), 'ERPEmptyState placeholder component exists');
 assert(fs.existsSync(path.join(componentsDir, 'erp/ERPSkeleton.tsx')), 'ERPSkeleton loading placeholder component exists');
+
+// 6. Phase 3 Auth & Role Cockpits Verification
+console.log('\n🔍 Group 6: Phase 3 Auth & Role Cockpits Verification');
+assert(fs.existsSync(path.join(componentsDir, 'auth/LoginPage.tsx')), 'QINDE LoginPage component exists');
+assert(fs.existsSync(path.join(componentsDir, 'dashboards/FinanceManagerCockpit.tsx')), 'FinanceManagerCockpit component exists');
+assert(fs.existsSync(path.join(componentsDir, 'dashboards/AccountantCockpit.tsx')), 'AccountantCockpit component exists');
+assert(fs.existsSync(path.join(componentsDir, 'dashboards/AdminCockpit.tsx')), 'AdminCockpit component exists');
+assert(fs.existsSync(path.join(componentsDir, 'dashboards/CustomerCockpit.tsx')), 'CustomerCockpit component exists');
 
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
