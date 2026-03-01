@@ -5,6 +5,9 @@ import { FinanceManagerCockpit } from './components/dashboards/FinanceManagerCoc
 import { AccountantCockpit } from './components/dashboards/AccountantCockpit';
 import { AdminCockpit } from './components/dashboards/AdminCockpit';
 import { CustomerCockpit } from './components/dashboards/CustomerCockpit';
+import { CustomerList } from './components/customers/CustomerList';
+import { InvoiceList } from './components/invoices/InvoiceList';
+import { PaymentList } from './components/payments/PaymentList';
 import { NavItemKey, UserRole } from './types';
 
 export const App: React.FC = () => {
@@ -21,20 +24,42 @@ export const App: React.FC = () => {
     return <LoginPage onLoginSuccess={handleLoginSuccess} />;
   }
 
-  // Render Cockpit matching the active UserRole
-  const renderRoleCockpit = () => {
-    switch (currentRole) {
-      case 'FINANCE_MANAGER':
-        return <FinanceManagerCockpit />;
-      case 'ACCOUNTANT':
-        return <AccountantCockpit />;
-      case 'SUPER_ADMIN':
-      case 'ADMIN':
-        return <AdminCockpit />;
-      case 'CUSTOMER':
-        return <CustomerCockpit />;
+  // Render main workspace view based on activeKey & currentRole
+  const renderMainWorkspace = () => {
+    switch (activeKey) {
+      case 'customers':
+        return (
+          <CustomerList
+            onIssueInvoiceForCustomer={() => {
+              setActiveKey('invoices');
+            }}
+          />
+        );
+      case 'invoices':
+        return (
+          <InvoiceList
+            onInitiatePaymentForInvoice={() => {
+              setActiveKey('payments');
+            }}
+          />
+        );
+      case 'payments':
+        return <PaymentList />;
+      case 'overview':
       default:
-        return <FinanceManagerCockpit />;
+        switch (currentRole) {
+          case 'FINANCE_MANAGER':
+            return <FinanceManagerCockpit />;
+          case 'ACCOUNTANT':
+            return <AccountantCockpit />;
+          case 'SUPER_ADMIN':
+          case 'ADMIN':
+            return <AdminCockpit />;
+          case 'CUSTOMER':
+            return <CustomerCockpit />;
+          default:
+            return <FinanceManagerCockpit />;
+        }
     }
   };
 
@@ -45,7 +70,7 @@ export const App: React.FC = () => {
       currentRole={currentRole}
       onChangeRole={(role) => setCurrentRole(role)}
     >
-      {renderRoleCockpit()}
+      {renderMainWorkspace()}
     </ERPShell>
   );
 };

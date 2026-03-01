@@ -1,6 +1,6 @@
 /**
  * QINDE ERP — Automated & Smoke Test Runner
- * Validates project structure, design system tokens, layout compliance, component suite, and Auth/Role Cockpits integrity.
+ * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, and Phase 4 Financial Workspaces.
  */
 
 const fs = require('fs');
@@ -84,6 +84,18 @@ assert(fs.existsSync(path.join(componentsDir, 'dashboards/FinanceManagerCockpit.
 assert(fs.existsSync(path.join(componentsDir, 'dashboards/AccountantCockpit.tsx')), 'AccountantCockpit component exists');
 assert(fs.existsSync(path.join(componentsDir, 'dashboards/AdminCockpit.tsx')), 'AdminCockpit component exists');
 assert(fs.existsSync(path.join(componentsDir, 'dashboards/CustomerCockpit.tsx')), 'CustomerCockpit component exists');
+
+// 7. Phase 4 Core Financial Workspaces Verification
+console.log('\n🔍 Group 7: Phase 4 Financial Workspaces Verification');
+assert(fs.existsSync(path.join(componentsDir, 'customers/CustomerList.tsx')), 'CustomerList workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'customers/CustomerDetail.tsx')), 'CustomerDetail workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'customers/CustomerDrawer.tsx')), 'CustomerDrawer form exists');
+assert(fs.existsSync(path.join(componentsDir, 'invoices/InvoiceList.tsx')), 'InvoiceList workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'invoices/InvoiceDetail.tsx')), 'InvoiceDetail workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'invoices/InvoiceCreateWizard.tsx')), 'InvoiceCreateWizard form exists');
+assert(fs.existsSync(path.join(componentsDir, 'payments/PaymentList.tsx')), 'PaymentList workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'payments/PaymentDetail.tsx')), 'PaymentDetail workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'payments/PaymentInitiationModal.tsx')), 'PaymentInitiationModal exists');
 
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
