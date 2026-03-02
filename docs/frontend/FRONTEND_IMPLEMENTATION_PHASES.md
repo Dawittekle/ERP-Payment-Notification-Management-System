@@ -63,6 +63,12 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
  Phase 6: Operational Administration, Audit & System Health
     │
  Phase 7: Responsive Polish, Micro-interactions & DoD Verification
+    │
+ Phase 8: Financial Visualizations & Graph Dashboard Analytics Suite
+    │
+ Phase 9: Theme Engine (Dark/Light Mode & Preset Accent Color Chooser)
+    │
+ Phase 10: High-Value UX Features, AI Insights & One-Click Controls
 ```
 
 ---
@@ -70,55 +76,55 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 ### Phase 1: Foundation & Shell Architecture
 **Goal:** Establish project repository setup, design token system, layout shell, sidebar, topbar, and global command center.
 
-- [ ] Setup application scaffold with TypeScript & routing structure.
-- [ ] Implement `tokens.css` with semantic color palette, typography scales, spacing tokens, and border radii.
-- [ ] Build `ERPShell` layout wrapper (responsive desktop/tablet/mobile grid).
-- [ ] Build `ERPSidebar` (Navy structure `#102A43`, expandable/collapsible, active states, branding with QINDE logo).
-- [ ] Build `ERPTopBar` (Quiet topbar, breadcrumbs, search prompt, role selector, notification bell, user profile menu).
-- [ ] Implement `ERPCommandCenter` (`Ctrl+K` / `⌘K` global overlay modal with search, keyboard navigation, and quick commands).
-- [ ] Configure light-first theme baseline and dark-theme tokens setup.
+- [x] Setup application scaffold with TypeScript & routing structure.
+- [x] Implement `tokens.css` with semantic color palette, typography scales, spacing tokens, and border radii.
+- [x] Build `ERPShell` layout wrapper (responsive desktop/tablet/mobile grid).
+- [x] Build `ERPSidebar` (Navy structure `#102A43`, expandable/collapsible, active states, branding with QINDE logo).
+- [x] Build `ERPTopBar` (Quiet topbar, breadcrumbs, search prompt, role selector, notification bell, user profile menu).
+- [x] Implement `ERPCommandCenter` (`Ctrl+K` / `⌘K` global overlay modal with search, keyboard navigation, and quick commands).
+- [x] Configure light-first theme baseline and dark-theme tokens setup.
 
 ---
 
 ### Phase 2: Design Tokens & Reusable ERP Component Suite
 **Goal:** Create the full set of QINDE-specific shared UI components and primitives to ensure total visual consistency across all feature modules.
 
-- [ ] **Base UI Components:** Button (Primary Navy, Success Green, Secondary, Ghost, Danger), Input, Select, Checkbox, Switch, Drawer, Dialog, Tooltip, Dropdown, Tabs, Toast.
-- [ ] **`ERPMetric`:** Compact KPI stat card with trends, icons, subtle borders, and financial indicators.
-- [ ] **`ERPStatus`:** Icon + Label + Semantic Color pill (Paid, Pending, Needs Review, Failed, Processing).
-- [ ] **`ERPMoney`:** Standardized financial currency formatter (ETB tabular numerals, mono font support).
-- [ ] **`ERPTable`:** Dense/comfortable data table with sort headers, row selection, sticky headers, and pagination.
-- [ ] **`ERPFilterBar` & `ERPSavedView`:** Multi-filter chip bar and saved view dropdown controls.
-- [ ] **`ERPObjectHeader`:** Master-detail workspace header with title, status, key amount, primary actions, and tabs.
-- [ ] **`ERPTimeline` & Transaction Signal:** Vertical lifecycle event rail motif.
-- [ ] **State Views:** `ERPEmptyState`, `ERPErrorState`, `ERPSkeleton` loading placeholders.
+- [x] **Base UI Components:** Button (Primary Navy, Success Green, Secondary, Ghost, Danger), Input, Select, Checkbox, Switch, Drawer, Dialog, Tooltip, Dropdown, Tabs, Toast.
+- [x] **`ERPMetric`:** Compact KPI stat card with trends, icons, subtle borders, and financial indicators.
+- [x] **`ERPStatus`:** Icon + Label + Semantic Color pill (Paid, Pending, Needs Review, Failed, Processing).
+- [x] **`ERPMoney`:** Standardized financial currency formatter (ETB tabular numerals, mono font support).
+- [x] **`ERPTable`:** Dense/comfortable data table with sort headers, row selection, sticky headers, and pagination.
+- [x] **`ERPFilterBar` & `ERPSavedView`:** Multi-filter chip bar and saved view dropdown controls.
+- [x] **`ERPObjectHeader`:** Master-detail workspace header with title, status, key amount, primary actions, and tabs.
+- [x] **`ERPTimeline` & Transaction Signal:** Vertical lifecycle event rail motif.
+- [x] **State Views:** `ERPEmptyState`, `ERPErrorState`, `ERPSkeleton` loading placeholders.
 
 ---
 
 ### Phase 3: Auth, Identity & Role-Based Operational Cockpits
 **Goal:** Implement login views, authentication state mock, and role-customized dashboard views.
 
-- [ ] **Login Screen:** Clean enterprise login with brand logo, credential inputs, remember me, and quick demo role switcher.
-- [ ] **Finance Manager Cockpit:** Overview prioritising collected money, outstanding invoices, refund queue, payment health, and revenue trend chart.
-- [ ] **Accountant Cockpit:** Overview prioritising invoice queue, overdue invoices, payment verification queue, and recent activity feed.
-- [ ] **Administrator Cockpit:** Overview prioritising user/role count, security/audit alerts, webhook health, and system job statuses.
-- [ ] **Support & Customer Cockpits:** Simplified views for customer lookup, invoice receipt lookup, and customer self-service invoice view.
-- [ ] **Attention Center Component:** Exception-first queue listing items requiring immediate human intervention.
+- [x] **Login Screen:** Clean enterprise login with brand logo, credential inputs, remember me, and quick demo role switcher.
+- [x] **Finance Manager Cockpit:** Overview prioritising collected money, outstanding invoices, refund queue, payment health, and revenue trend chart.
+- [x] **Accountant Cockpit:** Overview prioritising invoice queue, overdue invoices, payment verification queue, and recent activity feed.
+- [x] **Administrator Cockpit:** Overview prioritising user/role count, security/audit alerts, webhook health, and system job statuses.
+- [x] **Support & Customer Cockpits:** Simplified views for customer lookup, invoice receipt lookup, and customer self-service invoice view.
+- [x] **Attention Center Component:** Exception-first queue listing items requiring immediate human intervention.
 
 ---
 
 ### Phase 4: Core Financial Business Workspaces
 **Goal:** Build data-rich master-detail views and workflow screens for Customers, Invoices, and Payments.
 
-- [ ] **Customer Module:**
+- [x] **Customer Module:**
   - Customer list table with search, status filters, and export.
   - Customer workspace (profile header, invoice history, payment stats, contact details).
   - Create/edit customer drawer.
-- [ ] **Invoice Module:**
+- [x] **Invoice Module:**
   - Invoice list table with saved views (All, Issued, Overdue, Paid).
   - Multi-step Invoice Creator wizard (Customer selection, itemized lines, auto-calculated subtotal/VAT/discount, preview).
   - Invoice Workspace / Detail page (Invoice preview, line items breakdown, payment history timeline, action buttons: Download, Send, Initiate Payment).
-- [ ] **Payment Module:**
+- [x] **Payment Module:**
   - Payment list table (Initiated, Pending, Success, Failed).
   - Payment Workspace (Provider details, attempt history, Chapa reference, transaction signal timeline).
   - Payment Initiation & Verification modal simulation (Chapa checkout redirect simulation, manual verification trigger).
@@ -128,15 +134,15 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 ### Phase 5: Advanced Financial Workflows & Signature Screens
 **Goal:** Implement high-value signature operational screens: Refund Management and Reconciliation Workspace.
 
-- [ ] **Refund Queue & Approval Flow:**
+- [x] **Refund Queue & Approval Flow:**
   - Refund request modal with remaining refundable balance guardrails.
   - Refund approval queue table (Finance Manager authorization workflow, status progression: Requested → Approved → Processing → Completed).
   - Refund Workspace with detailed audit history and provider response.
-- [ ] **Reconciliation Workspace (Signature Screen):**
+- [x] **Reconciliation Workspace (Signature Screen):**
   - Summary metrics bar (Matched, Need Review, Missing Provider, Amount Mismatch).
   - Dual-View Comparison interface (ERP Record vs Provider Chapa Record side-by-side diff).
   - Resolution modal (Investigate, Manual Match, Force Resolve with rationale).
-- [ ] **Notification Center:**
+- [x] **Notification Center:**
   - Notification drawer and dedicated page (User notifications vs System/Operational logs).
   - Telegram Bot & Email delivery log details, retry action handler.
 
@@ -145,21 +151,72 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 ### Phase 6: System Operations, Audit & Administration
 **Goal:** Complete platform administrative capabilities, audit trails, and reporting dashboards.
 
-- [ ] **Audit Log Workspace:** Interactive audit log table with filter by actor, action type, resource, timestamp, and metadata inspect drawer.
-- [ ] **Operational Reporting Dashboard:** Analytical charts for payment success rate, revenue breakdown, payment method distribution, and tax analytics.
-- [ ] **User & Permission Administration:** User list, role management matrix (SUPER_ADMIN, ADMIN, FINANCE_MANAGER, ACCOUNTANT, SALES, SUPPORT, CUSTOMER), permission toggles.
-- [ ] **Integration & System Health:** Webhook log queue (raw JSON inspector, signature status, retry trigger), background job execution monitor.
+- [x] **Audit Log Workspace:** Interactive audit log table with filter by actor, action type, resource, timestamp, and metadata inspect drawer.
+- [x] **Operational Reporting Dashboard:** Analytical charts for payment success rate, revenue breakdown, payment method distribution, and tax analytics.
+- [x] **User & Permission Administration:** User list, role management matrix (SUPER_ADMIN, ADMIN, FINANCE_MANAGER, ACCOUNTANT, SALES, SUPPORT, CUSTOMER), permission toggles.
+- [x] **Integration & System Health:** Webhook log queue (raw JSON inspector, signature status, retry trigger), background job execution monitor.
 
 ---
 
 ### Phase 7: Responsive Polish, Micro-interactions & DoD Verification
 **Goal:** Perfect responsive behavior across screen sizes, fine-tune motion/transitions, enforce WCAG AA accessibility, and perform final quality audit.
 
-- [ ] **Responsive Audit:** Test and polish layouts at 375px (mobile), 768px (tablet), 1024px, and 1440px (desktop).
-- [ ] **Keyboard Shortcuts (`?` Help Sheet):** Implement global keyboard shortcuts (`/` search, `G+I` invoices, `G+P` payments, `C` create, `J/K` list navigation).
-- [ ] **Micro-animations & Motion:** Refine drawer slide-ins, toast transitions, Command Center backdrop blur, and subtle pulse indicators (150ms-250ms).
-- [ ] **Accessibility Audit:** Check WCAG 2.2 AA compliance (color contrast, keyboard focus rings, screen reader labels, aria attributes).
-- [ ] **Definition of Done Check:** Verify every screen against `QINDE_DESIGN.md` (Normal, Loading, Empty, Error, Success states).
+- [x] **Responsive Audit:** Test and polish layouts at 375px (mobile), 768px (tablet), 1024px, and 1440px (desktop).
+- [x] **Keyboard Shortcuts (`?` Help Sheet):** Implement global keyboard shortcuts (`/` search, `G+I` invoices, `G+P` payments, `C` create, `J/K` list navigation).
+- [x] **Micro-animations & Motion:** Refine drawer slide-ins, toast transitions, Command Center backdrop blur, and subtle pulse indicators (150ms-250ms).
+- [x] **Accessibility Audit:** Check WCAG 2.2 AA compliance (color contrast, keyboard focus rings, screen reader labels, aria attributes).
+- [x] **Definition of Done Check:** Verify every screen against `QINDE_DESIGN.md` (Normal, Loading, Empty, Error, Success states).
+
+---
+
+### Phase 8: Financial Visualizations & Graph Dashboard Analytics Suite
+**Goal:** Transform executive cockpits and operational reporting pages into rich data visualization hubs powered by SVG chart primitives and interactive graphs (inspired by reference designs: Pulse, Ficopay, Vision, Zenvest).
+
+- [ ] **Interactive Multi-Line Area Revenue & Cash Flow Charts (`ERPRevenueChart.tsx`):**
+  - Dual-line spline charts displaying Inflow vs Outflow over Jan–Dec time horizons.
+  - Smooth gradient fill under lines (`url(#revenueGradient)`).
+  - Interactive hover vertical tracking line with tooltip popover showing exact date, gross amount, and percentage growth (+16.7%).
+  - Time horizon filter pills (`30D`, `90D`, `12M`, `Custom`).
+- [ ] **Multi-Category Vertical Bar Charts (`ERPBarChart.tsx`):**
+  - Side-by-side comparative bar chart (Monthly Income vs Expense, or Plan Performance across `Starter`, `Growth`, `Scale`, `Enterprise`).
+  - Rounded top bar geometry with subtle hover elevation and value tooltips.
+- [ ] **Donut & Arch Gauge Expense Charts (`ERPDonutChart.tsx` & `ERPGaugeChart.tsx`):**
+  - Multi-segment donut charts for Payment Gateway Channel breakdown (`Telebirr`, `CBE Birr`, `Bank Cards`, `Others`) and Traffic Sources (`Organic`, `Paid Ads`, `Social`).
+  - Curved half-donut expense gauge with center total monetary readout (Salaries, Subscriptions, Marketing, Operations).
+  - Color-coded interactive legends with hover segment highlights.
+- [ ] **Inline Sparklines in `ERPMetric` KPI Cards (`ERPSparkline.tsx`):**
+  - Compact SVG sparklines integrated into KPI metric headers to visualize mini 7-day revenue, conversion rate, and transaction count trends.
+
+---
+
+### Phase 9: Theme Customization Engine (Dark/Light Mode & Accent Palette Chooser)
+**Goal:** Implement a comprehensive theme engine allowing seamless Dark/Light mode toggling and customizable accent color palettes across all workspaces.
+
+- [ ] **Dark & Light Mode Switcher:**
+  - Sidebar utility toggle switch and TopBar theme toggle icon.
+  - Support for `prefers-color-scheme` system default auto-detection.
+  - Smooth CSS variable transition across canvas, cards, text, and borders (`data-theme="dark"`).
+  - Persistent state saved to `localStorage` and synchronized across tabs.
+- [ ] **Preset Accent Theme Color Chooser:**
+  - Theme customization panel in `SystemSettings.tsx` and `ERPSidebar` allowing users to select specific brand accent presets:
+    1. **QINDE Navy & Emerald (Default Enterprise):** `#102A43` / `#198754`
+    2. **Midnight Indigo & Purple (Pulse Design):** `#4F46E5` / `#9333EA`
+    3. **Royal Sapphire & Cyan (Ficopay Glassmorphism):** `#0284C7` / `#06B6D4`
+    4. **Warm Obsidian & Amber (Fintech Gold):** `#1E293B` / `#D9A441`
+    5. **Clean Emerald & Mint (Vision SaaS):** `#059669` / `#10B981`
+  - Dynamic CSS root variable injection (`--color-brand-navy`, `--color-brand-green`, etc.) without page reload.
+
+---
+
+### Phase 10: High-Value UX Enhancements, AI Insights & Quick Action Controls
+**Goal:** Integrate modern SaaS UX features derived from top-tier financial dashboards (`Ficopay`, `Zenvest`).
+
+- [ ] **Smart AI Financial Insights Panel (`ERPAIInsights.tsx`):**
+  - Automated executive insight summary cards highlighting cash flow forecasts, overdue invoice alerts, and reconciliation anomaly warnings.
+- [ ] **Quick Action Widget (`ERPQuickActions.tsx`):**
+  - One-click quick action buttons (Quick Transfer, Issue Invoice, Pay via Chapa, Add Customer, Download Tax Statement).
+- [ ] **One-Click Statement & Analytics Exporter:**
+  - Instant CSV & PDF export triggers across all analytical dashboards and transaction ledgers.
 
 ---
 
@@ -191,6 +248,9 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 | **Phase 5** | Signature Workflows (Refund Queue & Reconciliation) | ✅ Completed | Pass |
 | **Phase 6** | Operational Administration, Audit & System Health | ✅ Completed | Pass |
 | **Phase 7** | Responsive Polish, Micro-interactions & DoD Audit | ✅ Completed | Pass |
+| **Phase 8** | Financial Visualizations & Graph Dashboard Analytics Suite | ⏳ Planned | Next |
+| **Phase 9** | Theme Engine (Dark/Light Mode & Accent Color Chooser) | ⏳ Planned | Next |
+| **Phase 10** | High-Value UX Features, AI Insights & Quick Action Controls | ⏳ Planned | Next |
 
 ---
 *End of Guide — Keep updated as phases are completed.*
