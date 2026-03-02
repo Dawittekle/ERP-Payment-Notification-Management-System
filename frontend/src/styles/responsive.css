@@ -1,0 +1,58 @@
+/**
+ * QINDE ERP — Responsive Breakpoints & Animation Polish CSS
+ */
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseIndicator {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(25, 135, 84, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(25, 135, 84, 0);
+  }
+}
+
+/* Global focus ring for WCAG 2.2 AA compliance */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-navy) !important;
+  outline-offset: 2px !important;
+}
+
+/* Tablet Breakpoint (768px) */
+@media (max-width: 1024px) {
+  .erp-shell-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .erp-sidebar-container {
+    display: none !important;
+  }
+  .erp-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile Breakpoint (375px) */
+@media (max-width: 640px) {
+  .erp-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .erp-topbar-container {
+    padding: 0 12px !important;
+  }
+}

@@ -1,6 +1,6 @@
 /**
  * QINDE ERP — Automated & Smoke Test Runner
- * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, Phase 4 Financial Workspaces, Phase 5 Signature Workflows, and Phase 6 Admin Operations.
+ * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, Phase 4 Financial Workspaces, Phase 5 Signature Workflows, Phase 6 Admin Operations, and Phase 7 Responsive Polish & Shortcuts.
  */
 
 const fs = require('fs');
@@ -116,6 +116,11 @@ assert(fs.existsSync(path.join(componentsDir, 'admin/AuditLogList.tsx')), 'Audit
 assert(fs.existsSync(path.join(componentsDir, 'admin/OperationalReports.tsx')), 'OperationalReports component exists');
 assert(fs.existsSync(path.join(componentsDir, 'admin/UserManagement.tsx')), 'UserManagement RBAC component exists');
 assert(fs.existsSync(path.join(componentsDir, 'admin/SystemHealthMonitor.tsx')), 'SystemHealthMonitor component exists');
+
+// 10. Phase 7 Responsive Polish & Keyboard Shortcuts Verification
+console.log('\n🔍 Group 10: Phase 7 Responsive Polish & Shortcuts Verification');
+assert(fs.existsSync(path.join(componentsDir, 'overlay/KeyboardShortcutsModal.tsx')), 'KeyboardShortcutsModal help sheet exists');
+assert(fs.existsSync(path.join(ROOT_DIR, 'frontend/src/styles/responsive.css')), 'Responsive CSS breakpoints stylesheet exists');
 
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
