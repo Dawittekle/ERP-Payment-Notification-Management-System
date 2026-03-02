@@ -1,6 +1,6 @@
 /**
  * QINDE ERP — Automated & Smoke Test Runner
- * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, Phase 4 Financial Workspaces, and Phase 5 Signature Workflows.
+ * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, Phase 4 Financial Workspaces, Phase 5 Signature Workflows, and Phase 6 Admin Operations.
  */
 
 const fs = require('fs');
@@ -108,6 +108,14 @@ assert(fs.existsSync(path.join(componentsDir, 'reconciliation/ReconciliationSumm
 assert(fs.existsSync(path.join(componentsDir, 'reconciliation/ResolutionModal.tsx')), 'ResolutionModal exception resolution modal exists');
 assert(fs.existsSync(path.join(componentsDir, 'notifications/NotificationLogList.tsx')), 'NotificationLogList outbox log exists');
 assert(fs.existsSync(path.join(componentsDir, 'notifications/NotificationDrawer.tsx')), 'NotificationDrawer drawer component exists');
+
+// 9. Phase 6 System Administration Verification
+console.log('\n🔍 Group 9: Phase 6 System Administration Verification');
+assert(fs.existsSync(path.join(componentsDir, 'admin/AdminWorkspace.tsx')), 'AdminWorkspace container exists');
+assert(fs.existsSync(path.join(componentsDir, 'admin/AuditLogList.tsx')), 'AuditLogList component exists');
+assert(fs.existsSync(path.join(componentsDir, 'admin/OperationalReports.tsx')), 'OperationalReports component exists');
+assert(fs.existsSync(path.join(componentsDir, 'admin/UserManagement.tsx')), 'UserManagement RBAC component exists');
+assert(fs.existsSync(path.join(componentsDir, 'admin/SystemHealthMonitor.tsx')), 'SystemHealthMonitor component exists');
 
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);

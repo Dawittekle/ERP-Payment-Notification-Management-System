@@ -11,6 +11,8 @@ import { PaymentList } from './components/payments/PaymentList';
 import { RefundList } from './components/refunds/RefundList';
 import { ReconciliationWorkspace } from './components/reconciliation/ReconciliationWorkspace';
 import { NotificationLogList } from './components/notifications/NotificationLogList';
+import { AdminWorkspace } from './components/admin/AdminWorkspace';
+import { OperationalReports } from './components/admin/OperationalReports';
 import { NavItemKey, UserRole } from './types';
 
 export const App: React.FC = () => {
@@ -54,6 +56,10 @@ export const App: React.FC = () => {
         return <ReconciliationWorkspace />;
       case 'notifications':
         return <NotificationLogList />;
+      case 'administration':
+        return <AdminWorkspace initialTab="audit" />;
+      case 'reports':
+        return <OperationalReports />;
       case 'overview':
       default:
         switch (currentRole) {
