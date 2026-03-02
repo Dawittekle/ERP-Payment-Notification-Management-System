@@ -123,6 +123,14 @@ console.log('\n🔍 Group 10: Phase 7 Responsive Polish & Shortcuts Verification
 assert(fs.existsSync(path.join(componentsDir, 'overlay/KeyboardShortcutsModal.tsx')), 'KeyboardShortcutsModal help sheet exists');
 assert(fs.existsSync(path.join(ROOT_DIR, 'frontend/src/styles/responsive.css')), 'Responsive CSS breakpoints stylesheet exists');
 
+// 11. Phase 8 Financial Visualizations & Graph Dashboard Analytics Suite Verification
+console.log('\n🔍 Group 11: Phase 8 Graph Visualizations Suite Verification');
+assert(fs.existsSync(path.join(componentsDir, 'charts/ERPSparkline.tsx')), 'ERPSparkline SVG trend line component exists');
+assert(fs.existsSync(path.join(componentsDir, 'charts/ERPRevenueChart.tsx')), 'ERPRevenueChart area spline chart exists');
+assert(fs.existsSync(path.join(componentsDir, 'charts/ERPBarChart.tsx')), 'ERPBarChart vertical comparative bar chart exists');
+assert(fs.existsSync(path.join(componentsDir, 'charts/ERPDonutChart.tsx')), 'ERPDonutChart multi-segment channel donut chart exists');
+assert(fs.existsSync(path.join(componentsDir, 'charts/ERPGaugeChart.tsx')), 'ERPGaugeChart half-donut expense arch gauge exists');
+
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
 console.log('======================================================\n');

@@ -12,6 +12,8 @@ import { ERPStatus } from '../erp/ERPStatus';
 import { ERPMoney } from '../erp/ERPMoney';
 import { ERPTable, Column } from '../erp/ERPTable';
 import { Button } from '../ui/Button';
+import { ERPRevenueChart } from '../charts/ERPRevenueChart';
+import { ERPBarChart } from '../charts/ERPBarChart';
 
 interface SettlementItem {
   id: string;
@@ -115,7 +117,7 @@ export const AccountantCockpit: React.FC = () => {
         </div>
       </div>
 
-      {/* Metrics Grid */}
+      {/* Metrics Grid with Sparklines */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
         <ERPMetric
           title="Daily Gross Settlement"
@@ -124,6 +126,7 @@ export const AccountantCockpit: React.FC = () => {
           icon={Receipt}
           iconVariant="green"
           subtitle="Collected today via Chapa"
+          sparklineData={[120000, 145000, 160000, 185000, 210000, 227450]}
         />
         <ERPMetric
           title="15% VAT Collected"
@@ -132,6 +135,7 @@ export const AccountantCockpit: React.FC = () => {
           icon={Calculator}
           iconVariant="navy"
           subtitle="Tax liability reserve"
+          sparklineData={[15000, 18000, 21000, 24000, 27000, 29667]}
         />
         <ERPMetric
           title="Invoices Issued Today"
@@ -139,6 +143,7 @@ export const AccountantCockpit: React.FC = () => {
           icon={FileText}
           iconVariant="info"
           subtitle="6 Paid · 2 Pending"
+          sparklineData={[2, 3, 5, 4, 6, 8]}
         />
         <ERPMetric
           title="Pending Payments"
@@ -147,6 +152,22 @@ export const AccountantCockpit: React.FC = () => {
           icon={Clock}
           iconVariant="warning"
           subtitle="Awaiting customer transfer"
+          sparklineData={[110000, 98000, 92000, 85000, 82450]}
+        />
+      </div>
+
+      {/* Visual Data Graphs Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '20px' }}>
+        <ERPRevenueChart title="Daily Settlement Velocity & Tax Flow" subtitle="Real-time collection vs pending liabilities" />
+        <ERPBarChart
+          title="15% VAT Tax Ledger"
+          subtitle="Collected tax liability breakdown by quarter"
+          data={[
+            { label: 'Q1 Tax', value: 34500, color: 'var(--color-brand-navy)' },
+            { label: 'Q2 Tax', value: 52000, color: 'var(--color-brand-green)' },
+            { label: 'Q3 Tax', value: 68400, color: 'var(--color-status-info)' },
+            { label: 'Q4 Tax (Proj)', value: 89000, color: 'var(--color-brand-gold)' },
+          ]}
         />
       </div>
 

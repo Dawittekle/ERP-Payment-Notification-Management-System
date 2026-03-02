@@ -2,6 +2,8 @@ import React from 'react';
 import { LucideIcon, ArrowUpRight, ArrowDownRight, Minus } from 'lucide-react';
 import { ERPMoney } from './ERPMoney';
 
+import { ERPSparkline } from '../charts/ERPSparkline';
+
 export type MetricIconVariant = 'navy' | 'green' | 'warning' | 'info';
 
 interface ERPMetricProps {
@@ -17,6 +19,7 @@ interface ERPMetricProps {
   icon?: LucideIcon;
   iconVariant?: MetricIconVariant;
   subtitle?: string;
+  sparklineData?: number[];
 }
 
 /**
@@ -32,6 +35,7 @@ export const ERPMetric: React.FC<ERPMetricProps> = ({
   icon: IconComponent,
   iconVariant = 'navy',
   subtitle,
+  sparklineData,
 }) => {
   const iconColors: Record<MetricIconVariant, { bg: string; text: string }> = {
     navy: { bg: 'rgba(16, 42, 67, 0.08)', text: 'var(--color-brand-navy)' },
@@ -86,22 +90,35 @@ export const ERPMetric: React.FC<ERPMetricProps> = ({
         )}
       </div>
 
-      {/* Primary Numerals */}
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-        {isCurrency && typeof value === 'number' ? (
-          <ERPMoney amount={value} currency={currencySymbol} size="lg" />
-        ) : (
-          <span
-            style={{
-              fontSize: 'var(--font-size-kpi)',
-              fontWeight: 700,
-              fontFamily: 'var(--font-family-primary)',
-              color: 'var(--color-text-primary)',
-              lineHeight: 1.1,
-            }}
-          >
-            {value}
-          </span>
+      {/* Primary Numerals & Sparkline */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+          {isCurrency && typeof value === 'number' ? (
+            <ERPMoney amount={value} currency={currencySymbol} size="lg" />
+          ) : (
+            <span
+              style={{
+                fontSize: 'var(--font-size-kpi)',
+                fontWeight: 700,
+                fontFamily: 'var(--font-family-primary)',
+                color: 'var(--color-text-primary)',
+                lineHeight: 1.1,
+              }}
+            >
+              {value}
+            </span>
+          )}
+        </div>
+
+        {sparklineData && (
+          <ERPSparkline
+            data={sparklineData}
+            color={
+              trend?.direction === 'down'
+                ? 'var(--color-status-error)'
+                : 'var(--color-brand-green)'
+            }
+          />
         )}
       </div>
 

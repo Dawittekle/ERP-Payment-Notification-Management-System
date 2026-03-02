@@ -11,6 +11,10 @@ import { ERPStatus } from '../erp/ERPStatus';
 import { ERPMoney } from '../erp/ERPMoney';
 import { ERPTable, Column } from '../erp/ERPTable';
 import { Button } from '../ui/Button';
+import { ERPRevenueChart } from '../charts/ERPRevenueChart';
+import { ERPBarChart } from '../charts/ERPBarChart';
+import { ERPDonutChart } from '../charts/ERPDonutChart';
+import { ERPGaugeChart } from '../charts/ERPGaugeChart';
 
 interface PendingRefund {
   id: string;
@@ -92,7 +96,7 @@ export const FinanceManagerCockpit: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      {/* Metrics Row */}
+      {/* Metrics Row with Sparklines */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
         <ERPMetric
           title="Total Monthly Revenue"
@@ -101,6 +105,7 @@ export const FinanceManagerCockpit: React.FC = () => {
           icon={CreditCard}
           iconVariant="green"
           trend={{ percentage: 18.4, direction: 'up', label: 'vs last month' }}
+          sparklineData={[42000, 58000, 74000, 61000, 89000, 112000, 145000]}
         />
         <ERPMetric
           title="Refund Approval Queue"
@@ -108,6 +113,7 @@ export const FinanceManagerCockpit: React.FC = () => {
           icon={RotateCcw}
           iconVariant="warning"
           trend={{ percentage: -1.0, direction: 'neutral', label: 'requires dual authorization' }}
+          sparklineData={[5, 4, 3, 4, 2, 3, 2]}
         />
         <ERPMetric
           title="Reconciliation Differences"
@@ -115,6 +121,7 @@ export const FinanceManagerCockpit: React.FC = () => {
           icon={GitCompare}
           iconVariant="info"
           subtitle="Chapa vs ERP match rate: 99.4%"
+          sparklineData={[8, 6, 4, 5, 3, 2, 2]}
         />
         <ERPMetric
           title="Overdue Receivables"
@@ -123,7 +130,18 @@ export const FinanceManagerCockpit: React.FC = () => {
           icon={FileText}
           iconVariant="navy"
           trend={{ percentage: -4.2, direction: 'down', label: 'improving collection' }}
+          sparklineData={[92000, 88000, 76000, 71000, 68000, 64200]}
         />
+      </div>
+
+      {/* Primary Analytics & Financial Spline Chart */}
+      <ERPRevenueChart />
+
+      {/* Secondary Data Visualization Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+        <ERPBarChart />
+        <ERPDonutChart />
+        <ERPGaugeChart />
       </div>
 
       {/* Exception Alert Banner */}

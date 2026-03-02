@@ -2,6 +2,10 @@ import React from 'react';
 import { BarChart3, TrendingUp, CreditCard, DollarSign } from 'lucide-react';
 import { ERPMetric } from '../erp/ERPMetric';
 import { ERPMoney } from '../erp/ERPMoney';
+import { ERPRevenueChart } from '../charts/ERPRevenueChart';
+import { ERPBarChart } from '../charts/ERPBarChart';
+import { ERPDonutChart } from '../charts/ERPDonutChart';
+import { ERPGaugeChart } from '../charts/ERPGaugeChart';
 
 /**
  * QINDE ERP — Operational Reporting & Financial Analytics Dashboard
@@ -26,7 +30,7 @@ export const OperationalReports: React.FC = () => {
         </div>
       </div>
 
-      {/* KPI Stats */}
+      {/* KPI Stats with Sparklines */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
         <ERPMetric
           title="Gross Billed Value"
@@ -35,6 +39,7 @@ export const OperationalReports: React.FC = () => {
           icon={TrendingUp}
           iconVariant="navy"
           subtitle="+14.2% Month-over-Month"
+          sparklineData={[310000, 340000, 380000, 410000, 442450]}
         />
         <ERPMetric
           title="Ethiopian 15% VAT Collected"
@@ -43,6 +48,7 @@ export const OperationalReports: React.FC = () => {
           icon={DollarSign}
           iconVariant="green"
           subtitle="Tax Authority Ledger (MOR)"
+          sparklineData={[45000, 51000, 57000, 62000, 66367]}
         />
         <ERPMetric
           title="Payment Success Rate"
@@ -50,6 +56,7 @@ export const OperationalReports: React.FC = () => {
           icon={CreditCard}
           iconVariant="green"
           subtitle="Chapa Gateway SLA"
+          sparklineData={[98.5, 99.1, 99.4, 99.7, 99.8]}
         />
         <ERPMetric
           title="Average Transaction Value"
@@ -57,7 +64,18 @@ export const OperationalReports: React.FC = () => {
           isCurrency
           icon={BarChart3}
           iconVariant="info"
+          sparklineData={[120000, 132000, 141000, 147483]}
         />
+      </div>
+
+      {/* Main Revenue & Outflow Trend Chart */}
+      <ERPRevenueChart title="Platform Revenue & Cash Flow Analytics" subtitle="Interactive 12-Month Inflow vs Outflow Ledger Analysis" />
+
+      {/* Visual Analytics Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+        <ERPBarChart title="Subscription Plan Performance" subtitle="Revenue generated per customer tier" />
+        <ERPDonutChart title="Acquisition Channels" subtitle="Traffic and payment source volume" />
+        <ERPGaugeChart title="Expense & Operations Breakdown" subtitle="Monthly cost distribution across teams" />
       </div>
 
       {/* Revenue Distribution Progress Bars */}
