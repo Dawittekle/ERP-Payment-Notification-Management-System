@@ -1,6 +1,6 @@
 /**
  * QINDE ERP — Automated & Smoke Test Runner
- * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, and Phase 4 Financial Workspaces.
+ * Validates project structure, design system tokens, layout compliance, component suite, Auth/Role Cockpits, Phase 4 Financial Workspaces, and Phase 5 Signature Workflows.
  */
 
 const fs = require('fs');
@@ -96,6 +96,18 @@ assert(fs.existsSync(path.join(componentsDir, 'invoices/InvoiceCreateWizard.tsx'
 assert(fs.existsSync(path.join(componentsDir, 'payments/PaymentList.tsx')), 'PaymentList workspace exists');
 assert(fs.existsSync(path.join(componentsDir, 'payments/PaymentDetail.tsx')), 'PaymentDetail workspace exists');
 assert(fs.existsSync(path.join(componentsDir, 'payments/PaymentInitiationModal.tsx')), 'PaymentInitiationModal exists');
+
+// 8. Phase 5 Signature Workflows Verification
+console.log('\n🔍 Group 8: Phase 5 Signature Workflows Verification');
+assert(fs.existsSync(path.join(componentsDir, 'refunds/RefundList.tsx')), 'RefundList queue component exists');
+assert(fs.existsSync(path.join(componentsDir, 'refunds/RefundDetail.tsx')), 'RefundDetail workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'refunds/RefundRequestModal.tsx')), 'RefundRequestModal exists');
+assert(fs.existsSync(path.join(componentsDir, 'reconciliation/ReconciliationWorkspace.tsx')), 'ReconciliationWorkspace QINDE signature screen exists');
+assert(fs.existsSync(path.join(componentsDir, 'reconciliation/ReconciliationDualView.tsx')), 'ReconciliationDualView diff workspace exists');
+assert(fs.existsSync(path.join(componentsDir, 'reconciliation/ReconciliationSummaryBar.tsx')), 'ReconciliationSummaryBar metrics bar exists');
+assert(fs.existsSync(path.join(componentsDir, 'reconciliation/ResolutionModal.tsx')), 'ResolutionModal exception resolution modal exists');
+assert(fs.existsSync(path.join(componentsDir, 'notifications/NotificationLogList.tsx')), 'NotificationLogList outbox log exists');
+assert(fs.existsSync(path.join(componentsDir, 'notifications/NotificationDrawer.tsx')), 'NotificationDrawer drawer component exists');
 
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);

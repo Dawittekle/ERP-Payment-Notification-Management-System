@@ -8,6 +8,9 @@ import { CustomerCockpit } from './components/dashboards/CustomerCockpit';
 import { CustomerList } from './components/customers/CustomerList';
 import { InvoiceList } from './components/invoices/InvoiceList';
 import { PaymentList } from './components/payments/PaymentList';
+import { RefundList } from './components/refunds/RefundList';
+import { ReconciliationWorkspace } from './components/reconciliation/ReconciliationWorkspace';
+import { NotificationLogList } from './components/notifications/NotificationLogList';
 import { NavItemKey, UserRole } from './types';
 
 export const App: React.FC = () => {
@@ -45,6 +48,12 @@ export const App: React.FC = () => {
         );
       case 'payments':
         return <PaymentList />;
+      case 'refunds':
+        return <RefundList />;
+      case 'reconciliation':
+        return <ReconciliationWorkspace />;
+      case 'notifications':
+        return <NotificationLogList />;
       case 'overview':
       default:
         switch (currentRole) {
