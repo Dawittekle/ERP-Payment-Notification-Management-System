@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { ShieldCheck, BarChart3, Users, Activity } from 'lucide-react';
+import { ShieldCheck, BarChart3, Users, Activity, Settings } from 'lucide-react';
 import { AuditLogList } from './AuditLogList';
 import { OperationalReports } from './OperationalReports';
 import { UserManagement } from './UserManagement';
 import { SystemHealthMonitor } from './SystemHealthMonitor';
+import { SystemSettings } from './SystemSettings';
 
-type AdminTab = 'audit' | 'reports' | 'users' | 'health';
+type AdminTab = 'audit' | 'reports' | 'users' | 'health' | 'settings';
 
 /**
  * QINDE ERP — Master Administration & Operations Workspace Container
@@ -18,6 +19,7 @@ export const AdminWorkspace: React.FC<{ initialTab?: AdminTab }> = ({ initialTab
     { id: 'reports', label: 'Financial Analytics', icon: BarChart3 },
     { id: 'users', label: 'User & RBAC Scoping', icon: Users },
     { id: 'health', label: 'System Health & Webhooks', icon: Activity },
+    { id: 'settings', label: 'Organization & Gateways', icon: Settings },
   ];
 
   return (
@@ -80,6 +82,7 @@ export const AdminWorkspace: React.FC<{ initialTab?: AdminTab }> = ({ initialTab
         {activeTab === 'reports' && <OperationalReports />}
         {activeTab === 'users' && <UserManagement />}
         {activeTab === 'health' && <SystemHealthMonitor />}
+        {activeTab === 'settings' && <SystemSettings />}
       </div>
     </div>
   );

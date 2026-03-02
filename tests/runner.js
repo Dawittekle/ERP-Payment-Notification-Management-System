@@ -116,6 +116,7 @@ assert(fs.existsSync(path.join(componentsDir, 'admin/AuditLogList.tsx')), 'Audit
 assert(fs.existsSync(path.join(componentsDir, 'admin/OperationalReports.tsx')), 'OperationalReports component exists');
 assert(fs.existsSync(path.join(componentsDir, 'admin/UserManagement.tsx')), 'UserManagement RBAC component exists');
 assert(fs.existsSync(path.join(componentsDir, 'admin/SystemHealthMonitor.tsx')), 'SystemHealthMonitor component exists');
+assert(fs.existsSync(path.join(componentsDir, 'admin/SystemSettings.tsx')), 'SystemSettings component exists');
 
 // 10. Phase 7 Responsive Polish & Keyboard Shortcuts Verification
 console.log('\n🔍 Group 10: Phase 7 Responsive Polish & Shortcuts Verification');

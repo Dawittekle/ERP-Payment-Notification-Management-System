@@ -58,6 +58,8 @@ export const App: React.FC = () => {
         return <NotificationLogList />;
       case 'administration':
         return <AdminWorkspace initialTab="audit" />;
+      case 'settings':
+        return <AdminWorkspace initialTab="settings" />;
       case 'reports':
         return <OperationalReports />;
       case 'overview':
