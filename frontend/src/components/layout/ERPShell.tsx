@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ERPSidebar } from './ERPSidebar';
 import { ERPTopBar } from './ERPTopBar';
 import { ERPCommandCenter } from '../overlay/ERPCommandCenter';
+import { KeyboardShortcutsModal } from '../overlay/KeyboardShortcutsModal';
 import { NavItemKey, UserRole, UserProfile } from '../../types';
 
 interface ERPShellProps {
@@ -21,6 +22,7 @@ export const ERPShell: React.FC<ERPShellProps> = ({
 }) => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isCommandCenterOpen, setIsCommandCenterOpen] = useState(false);
+  const [isKeyboardHelpOpen, setIsKeyboardHelpOpen] = useState(false);
 
   // Sample Authenticated User Profile
   const currentUser: UserProfile = {
@@ -31,14 +33,26 @@ export const ERPShell: React.FC<ERPShellProps> = ({
     department: 'Financial Operations',
   };
 
-  // Keyboard shortcut listener for Ctrl+K / Cmd+K
+  // Keyboard shortcut listener for Ctrl+K / Cmd+K and ? Help Sheet
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger shortcuts inside text inputs
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement).tagName)) {
+        return;
+      }
+
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setIsCommandCenterOpen((prev) => !prev);
+      } else if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+        e.preventDefault();
+        setIsKeyboardHelpOpen((prev) => !prev);
+      } else if (e.key === '/') {
+        e.preventDefault();
+        setIsCommandCenterOpen(true);
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
@@ -94,11 +108,17 @@ export const ERPShell: React.FC<ERPShellProps> = ({
         </main>
       </div>
 
-      {/* Global Command Center Overlay (Ctrl+K) */}
+      {/* Global Command Center Overlay (Ctrl+K or /) */}
       <ERPCommandCenter
         isOpen={isCommandCenterOpen}
         onClose={() => setIsCommandCenterOpen(false)}
         onNavigate={onNavigate}
+      />
+
+      {/* Global Keyboard Shortcuts Help Sheet (?) */}
+      <KeyboardShortcutsModal
+        isOpen={isKeyboardHelpOpen}
+        onClose={() => setIsKeyboardHelpOpen(false)}
       />
     </div>
   );
