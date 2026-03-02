@@ -44,6 +44,7 @@ export const ERPMetric: React.FC<ERPMetricProps> = ({
 
   return (
     <div
+      className="qinde-card-interactive"
       style={{
         backgroundColor: 'var(--color-surface-card)',
         borderRadius: 'var(--radius-card)',
@@ -53,6 +54,7 @@ export const ERPMetric: React.FC<ERPMetricProps> = ({
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
+        cursor: 'pointer',
       }}
     >
       {/* Header: Title & Icon */}

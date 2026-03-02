@@ -87,7 +87,7 @@ export const Button: React.FC<ButtonProps> = ({
     fontFamily: 'var(--font-family-primary)',
     cursor: disabled || isLoading ? 'not-allowed' : 'pointer',
     opacity: disabled || isLoading ? 0.6 : 1,
-    transition: 'all var(--motion-fast)',
+    transition: 'transform var(--motion-fast), box-shadow var(--motion-fast), background-color var(--motion-fast)',
     width: fullWidth ? '100%' : 'auto',
     userSelect: 'none',
     boxShadow: variant === 'ghost' ? 'none' : 'var(--shadow-subtle)',

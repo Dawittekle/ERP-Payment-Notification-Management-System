@@ -80,11 +80,18 @@ export const ERPStatus: React.FC<ERPStatusProps> = ({
 
   const IconComp = config.icon;
 
+  const isLiveState = ['PROCESSING', 'INITIATED', 'PENDING', 'REQUESTED', 'AUTH_NEEDED'].includes(status);
+
   return (
     <Badge
       variant={config.variant}
       size={size}
-      icon={<IconComp size={size === 'sm' ? 12 : 14} style={{ flexShrink: 0 }} />}
+      icon={
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          {isLiveState && <span className="qinde-pulse-indicator" style={{ width: '6px', height: '6px' }} />}
+          <IconComp size={size === 'sm' ? 12 : 14} style={{ flexShrink: 0 }} />
+        </div>
+      }
     >
       {customLabel || config.label}
     </Badge>
