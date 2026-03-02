@@ -98,6 +98,40 @@
   --z-toast: 1500;
 }
 
+/* ==============================================================================
+   QINDE ERP — Dark Theme Mode Surface Overrides ([data-theme="dark"])
+   ============================================================================== */
+[data-theme="dark"] {
+  /* --- Dark Surface Palette --- */
+  --color-surface-canvas: #0B1320;    /* Deep midnight canvas */
+  --color-surface-card: #131F33;      /* Elevated dark card surface */
+  --color-surface-subtle: #1A2942;    /* Dark secondary background tone */
+  --color-surface-hover: #203352;     /* Interactive element hover in dark mode */
+
+  /* --- Dark Border & Divider Tokens --- */
+  --color-border-default: #243B53;    /* Clear dark mode borders */
+  --color-border-subtle: #1A2B3C;     /* Subtle dark panel divider */
+  --color-border-focus: #38BDF8;      /* High contrast focus ring */
+
+  /* --- Dark Typography Tokens --- */
+  --color-text-primary: #F0F4F8;      /* Bright white high contrast text */
+  --color-text-secondary: #9FB3C8;    /* Soft secondary body text */
+  --color-text-disabled: #486581;     /* Disabled text */
+  --color-text-inverse: #0B1320;      /* Dark text on bright backgrounds */
+
+  /* --- Dark Status Badges --- */
+  --color-status-success-bg: rgba(22, 163, 74, 0.16);
+  --color-status-warning-bg: rgba(217, 119, 6, 0.16);
+  --color-status-error-bg: rgba(220, 38, 38, 0.16);
+  --color-status-info-bg: rgba(37, 99, 235, 0.16);
+
+  /* --- Dark Elevation Shadows --- */
+  --shadow-subtle: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 8px 28px rgba(0, 0, 0, 0.6);
+  --shadow-overlay: 0 20px 48px rgba(0, 0, 0, 0.7);
+}
+
 /* Global Reset & Base Styles */
 *, *::before, *::after {
   box-sizing: border-box;

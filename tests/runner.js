@@ -131,6 +131,17 @@ assert(fs.existsSync(path.join(componentsDir, 'charts/ERPBarChart.tsx')), 'ERPBa
 assert(fs.existsSync(path.join(componentsDir, 'charts/ERPDonutChart.tsx')), 'ERPDonutChart multi-segment channel donut chart exists');
 assert(fs.existsSync(path.join(componentsDir, 'charts/ERPGaugeChart.tsx')), 'ERPGaugeChart half-donut expense arch gauge exists');
 
+// 12. Phase 9 Theme Customization Engine Verification
+console.log('\n🔍 Group 12: Phase 9 Theme Customization Engine Verification');
+assert(fs.existsSync(path.join(ROOT_DIR, 'frontend/src/context/ThemeContext.tsx')), 'ThemeContext state provider component exists');
+if (fs.existsSync(tokensPath)) {
+  const tokenContent = fs.readFileSync(tokensPath, 'utf8');
+  assert(tokenContent.includes('[data-theme="dark"]'), 'Dark mode CSS token overrides present in tokens.css');
+  assert(tokenContent.includes('--color-surface-canvas: #0B1320'), 'Dark canvas surface color token defined');
+} else {
+  assert(false, 'tokens.css exists for Theme Engine verification');
+}
+
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
 console.log('======================================================\n');

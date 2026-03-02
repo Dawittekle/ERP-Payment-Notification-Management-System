@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Building2, Key, Bot, Receipt, Save, CheckCircle2 } from 'lucide-react';
+import { Building2, Key, Bot, Receipt, Save, CheckCircle2, Sun, Moon, Palette, Check } from 'lucide-react';
 import { Input } from '../ui/Input';
 import { Button } from '../ui/Button';
+import { useTheme, ACCENT_PRESETS, AccentPreset } from '../../context/ThemeContext';
 
 /**
  * QINDE ERP — System & Organization Settings Component
- * Covers Organization Profile, Chapa Gateway API keys, Telegram Bot integration, and 15% VAT Tax configuration.
+ * Covers Organization Profile, Chapa Gateway API keys, Telegram Bot integration, 15% VAT Tax configuration, and Theme Customization.
  */
 export const SystemSettings: React.FC = () => {
+  const { theme, toggleTheme, accentPreset, setAccentPreset } = useTheme();
   const [isSaved, setIsSaved] = useState(false);
 
   const [orgForm, setOrgForm] = useState({
@@ -58,6 +60,126 @@ export const SystemSettings: React.FC = () => {
         <Button variant="primary" type="submit" icon={isSaved ? CheckCircle2 : Save}>
           {isSaved ? 'Settings Saved!' : 'Save System Configuration'}
         </Button>
+      </div>
+
+      {/* Appearance & Theme Customization Engine Card */}
+      <div
+        style={{
+          backgroundColor: 'var(--color-surface-card)',
+          borderRadius: 'var(--radius-card)',
+          border: '1px solid var(--color-border-default)',
+          padding: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+          boxShadow: 'var(--shadow-card)',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--color-brand-navy)' }}>
+            <Palette size={22} />
+            <div>
+              <h3 style={{ fontSize: '16px', fontWeight: 700 }}>Appearance & Theme Customization Engine</h3>
+              <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>
+                Configure application canvas theme mode and brand accent color presets across all cockpits.
+              </p>
+            </div>
+          </div>
+
+          {/* Theme Mode Toggle Pills */}
+          <div style={{ display: 'flex', gap: '8px', backgroundColor: 'var(--color-surface-subtle)', padding: '4px', borderRadius: 'var(--radius-pill)' }}>
+            <button
+              type="button"
+              onClick={() => toggleTheme()}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: 'var(--radius-pill)',
+                border: 'none',
+                backgroundColor: theme === 'light' ? 'var(--color-surface-card)' : 'transparent',
+                color: theme === 'light' ? 'var(--color-brand-navy)' : 'var(--color-text-secondary)',
+                fontWeight: 600,
+                fontSize: '13px',
+                cursor: 'pointer',
+                boxShadow: theme === 'light' ? 'var(--shadow-subtle)' : 'none',
+              }}
+            >
+              <Sun size={15} color={theme === 'light' ? '#F59E0B' : 'currentColor'} />
+              <span>Light Canvas</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => toggleTheme()}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: 'var(--radius-pill)',
+                border: 'none',
+                backgroundColor: theme === 'dark' ? 'var(--color-brand-navy)' : 'transparent',
+                color: theme === 'dark' ? '#FFFFFF' : 'var(--color-text-secondary)',
+                fontWeight: 600,
+                fontSize: '13px',
+                cursor: 'pointer',
+                boxShadow: theme === 'dark' ? 'var(--shadow-subtle)' : 'none',
+              }}
+            >
+              <Moon size={15} color={theme === 'dark' ? 'var(--color-brand-gold)' : 'currentColor'} />
+              <span>Dark Canvas</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Accent Color Preset Swatches */}
+        <div>
+          <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '12px' }}>
+            Select Brand Accent Palette:
+          </h4>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px' }}>
+            {(Object.keys(ACCENT_PRESETS) as AccentPreset[]).map((key) => {
+              const preset = ACCENT_PRESETS[key];
+              const isSelected = accentPreset === key;
+              return (
+                <div
+                  key={key}
+                  onClick={() => setAccentPreset(key)}
+                  style={{
+                    backgroundColor: 'var(--color-surface-subtle)',
+                    borderRadius: 'var(--radius-standard)',
+                    border: isSelected
+                      ? '2px solid var(--color-brand-navy)'
+                      : '1px solid var(--color-border-default)',
+                    padding: '12px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px',
+                    transition: 'all 0.2s ease',
+                    boxShadow: isSelected ? 'var(--shadow-hover)' : 'none',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-primary)' }}>
+                      {preset.name}
+                    </span>
+                    {isSelected && <Check size={16} color="var(--color-brand-green)" />}
+                  </div>
+
+                  {/* Swatch Colors preview */}
+                  <div style={{ display: 'flex', gap: '6px' }}>
+                    <div style={{ flex: 1, height: '16px', borderRadius: '4px', backgroundColor: preset.navy }} title="Navy Accent" />
+                    <div style={{ flex: 1, height: '16px', borderRadius: '4px', backgroundColor: preset.green }} title="Green Accent" />
+                    <div style={{ flex: 1, height: '16px', borderRadius: '4px', backgroundColor: preset.gold }} title="Gold Accent" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Organization Legal Profile */}

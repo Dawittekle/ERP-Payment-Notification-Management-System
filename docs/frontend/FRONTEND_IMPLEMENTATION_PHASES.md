@@ -192,12 +192,12 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 ### Phase 9: Theme Customization Engine (Dark/Light Mode & Accent Palette Chooser)
 **Goal:** Implement a comprehensive theme engine allowing seamless Dark/Light mode toggling and customizable accent color palettes across all workspaces.
 
-- [ ] **Dark & Light Mode Switcher:**
+- [x] **Dark & Light Mode Switcher:**
   - Sidebar utility toggle switch and TopBar theme toggle icon.
   - Support for `prefers-color-scheme` system default auto-detection.
   - Smooth CSS variable transition across canvas, cards, text, and borders (`data-theme="dark"`).
   - Persistent state saved to `localStorage` and synchronized across tabs.
-- [ ] **Preset Accent Theme Color Chooser:**
+- [x] **Preset Accent Theme Color Chooser:**
   - Theme customization panel in `SystemSettings.tsx` and `ERPSidebar` allowing users to select specific brand accent presets:
     1. **QINDE Navy & Emerald (Default Enterprise):** `#102A43` / `#198754`
     2. **Midnight Indigo & Purple (Pulse Design):** `#4F46E5` / `#9333EA`
@@ -249,7 +249,7 @@ Below is the step-by-step roadmap. Each phase must be completed, visually verifi
 | **Phase 6** | Operational Administration, Audit & System Health | ✅ Completed | Pass |
 | **Phase 7** | Responsive Polish, Micro-interactions & DoD Audit | ✅ Completed | Pass |
 | **Phase 8** | Financial Visualizations & Graph Dashboard Analytics Suite | ✅ Completed | Pass |
-| **Phase 9** | Theme Engine (Dark/Light Mode & Accent Color Chooser) | ⏳ Planned | Next |
+| **Phase 9** | Theme Engine (Dark/Light Mode & Accent Color Chooser) | ✅ Completed | Pass |
 | **Phase 10** | High-Value UX Features, AI Insights & Quick Action Controls | ⏳ Planned | Next |
 
 ---

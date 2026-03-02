@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { QindeLogo } from '../brand/QindeLogo';
 import { NavItemKey, UserRole } from '../../types';
+import { useTheme, ACCENT_PRESETS, AccentPreset } from '../../context/ThemeContext';
+import { Sun, Moon, Palette } from 'lucide-react';
 
 interface ERPSidebarProps {
   activeKey: NavItemKey;
@@ -37,6 +39,7 @@ export const ERPSidebar: React.FC<ERPSidebarProps> = ({
   unreadNotificationsCount = 3,
   pendingRefundsCount = 4,
 }) => {
+  const { theme, toggleTheme, accentPreset, setAccentPreset } = useTheme();
   // Main Operational Navigation Items
   const primaryNavItems = [
     { key: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -280,6 +283,108 @@ export const ERPSidebar: React.FC<ERPSidebarProps> = ({
             );
           })}
         </nav>
+
+        {/* Divider */}
+        <div
+          style={{
+            height: '1px',
+            backgroundColor: 'rgba(255, 255, 255, 0.08)',
+            margin: '20px 0 16px 0',
+          }}
+        />
+
+        {/* Theme Engine Settings Section */}
+        {!isCollapsed && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', paddingLeft: '4px' }}>
+            <div
+              style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                color: '#98A2B3',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <span>Appearance</span>
+              <Palette size={13} color="#98A2B3" />
+            </div>
+
+            {/* Dark / Light Toggle Switch */}
+            <div
+              onClick={toggleTheme}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '8px 10px',
+                backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                borderRadius: 'var(--radius-micro)',
+                cursor: 'pointer',
+                fontSize: '12px',
+                color: '#CBD5E1',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                {theme === 'dark' ? <Moon size={15} color="var(--color-brand-gold)" /> : <Sun size={15} color="#F59E0B" />}
+                <span>{theme === 'dark' ? 'Dark Mode' : 'Light Mode'}</span>
+              </div>
+              <div
+                style={{
+                  width: '32px',
+                  height: '18px',
+                  borderRadius: '10px',
+                  backgroundColor: theme === 'dark' ? 'var(--color-brand-green)' : '#475569',
+                  position: 'relative',
+                  transition: 'background-color 0.2s ease',
+                }}
+              >
+                <div
+                  style={{
+                    width: '14px',
+                    height: '14px',
+                    borderRadius: '50%',
+                    backgroundColor: '#FFFFFF',
+                    position: 'absolute',
+                    top: '2px',
+                    left: theme === 'dark' ? '16px' : '2px',
+                    transition: 'left 0.2s ease',
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Accent Theme Swatches */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <span style={{ fontSize: '11px', color: '#94A3B8' }}>Accent Palette:</span>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                {(Object.keys(ACCENT_PRESETS) as AccentPreset[]).map((key) => {
+                  const preset = ACCENT_PRESETS[key];
+                  const isSelected = accentPreset === key;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => setAccentPreset(key)}
+                      title={preset.name}
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        borderRadius: '50%',
+                        backgroundColor: preset.navy,
+                        border: isSelected ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.3)',
+                        cursor: 'pointer',
+                        transform: isSelected ? 'scale(1.15)' : 'scale(1)',
+                        transition: 'transform 0.15s ease',
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Collapse / Expand Toggle Button */}

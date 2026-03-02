@@ -1,6 +1,6 @@
-import React from 'react';
-import { Search, Bell, Command, UserCheck, ChevronDown } from 'lucide-react';
+import { Search, Bell, Command, UserCheck, ChevronDown, Sun, Moon } from 'lucide-react';
 import { UserRole, UserProfile } from '../../types';
+import { useTheme } from '../../context/ThemeContext';
 
 interface ERPTopBarProps {
   currentPath: string;
@@ -19,6 +19,8 @@ export const ERPTopBar: React.FC<ERPTopBarProps> = ({
   user,
   unreadCount = 3,
 }) => {
+  const { theme, toggleTheme } = useTheme();
+
   const roleLabels: Record<UserRole, string> = {
     FINANCE_MANAGER: 'Finance Manager',
     ACCOUNTANT: 'Accountant',
@@ -111,8 +113,29 @@ export const ERPTopBar: React.FC<ERPTopBarProps> = ({
         </button>
       </div>
 
-      {/* Right: Controls, Role Switcher, Notification & Profile */}
+      {/* Right: Controls, Theme Switcher, Role Switcher, Notification & Profile */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        {/* Dark / Light Mode Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '36px',
+            height: '36px',
+            borderRadius: 'var(--radius-micro)',
+            backgroundColor: 'var(--color-surface-subtle)',
+            border: '1px solid var(--color-border-default)',
+            color: theme === 'dark' ? 'var(--color-brand-gold)' : 'var(--color-brand-navy)',
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          aria-label="Toggle Theme Mode"
+        >
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
         {/* Interactive Role Switcher Selector */}
         <div
           style={{
