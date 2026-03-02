@@ -28,6 +28,32 @@ Designed specifically for enterprise billing workflows and regional fintech rail
 
 ---
 
+## 🖼️ Operational Workspace Showcase
+
+<p align="center">
+  <img src="docs/images/customer_portal_overview.png" alt="Customer Billing & Invoicing Portal" width="100%" style="border-radius: 8px; margin-bottom: 16px;" /><br>
+  <em>1. Customer Self-Service Billing & Invoicing Portal Workspace</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/finance_manager_cockpit.png" alt="Finance Manager Executive Cockpit" width="100%" style="border-radius: 8px; margin-bottom: 16px;" /><br>
+  <em>2. Finance Manager Executive Cockpit & Dual-Authorization Refund Approval Queue</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/accountant_vat_ledger.png" alt="Accountant Operational Ledger" width="100%" style="border-radius: 8px; margin-bottom: 16px;" /><br>
+  <em>3. Accountant Operational Ledger with Automated 15% Ethiopian VAT Breakdown</em>
+</p>
+
+<div align="center">
+  <img src="docs/images/invoice_wizard_modal.png" alt="Issue Tax Invoice Wizard Modal" width="48%" style="border-radius: 8px;" />
+  &nbsp;&nbsp;
+  <img src="docs/images/chapa_payment_checkout.png" alt="Chapa Payment Gateway Checkout Modal" width="48%" style="border-radius: 8px;" /><br>
+  <em>4 & 5. Issue Tax Invoice Wizard (Itemized 15% VAT) & Chapa Payment Gateway Checkout Modals</em>
+</div>
+
+---
+
 ## ⚡ Core Business Modules
 
 * **Identity & Access Management (RBAC):** 7 system roles (`SUPER_ADMIN`, `ADMIN`, `FINANCE_MANAGER`, `ACCOUNTANT`, `SALES`, `SUPPORT`, `CUSTOMER`) with permission-scoped views and active session tracking.
