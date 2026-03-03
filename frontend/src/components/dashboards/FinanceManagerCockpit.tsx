@@ -15,6 +15,7 @@ import { ERPRevenueChart } from '../charts/ERPRevenueChart';
 import { ERPBarChart } from '../charts/ERPBarChart';
 import { ERPDonutChart } from '../charts/ERPDonutChart';
 import { ERPGaugeChart } from '../charts/ERPGaugeChart';
+import { ERPAIInsights } from '../analytics/ERPAIInsights';
 
 interface PendingRefund {
   id: string;
@@ -133,6 +134,9 @@ export const FinanceManagerCockpit: React.FC = () => {
           sparklineData={[92000, 88000, 76000, 71000, 68000, 64200]}
         />
       </div>
+
+      {/* QINDE Smart AI Executive Financial Insights */}
+      <ERPAIInsights />
 
       {/* Primary Analytics & Financial Spline Chart */}
       <ERPRevenueChart />

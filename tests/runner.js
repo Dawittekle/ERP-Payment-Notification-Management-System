@@ -142,6 +142,13 @@ if (fs.existsSync(tokensPath)) {
   assert(false, 'tokens.css exists for Theme Engine verification');
 }
 
+// 13. Phase 10 High-Value UX Features, AI Insights & Backend Readiness Verification
+console.log('\n🔍 Group 13: Phase 10 High-Value UX & Backend Integration Readiness Verification');
+assert(fs.existsSync(path.join(componentsDir, 'analytics/ERPAIInsights.tsx')), 'ERPAIInsights executive panel component exists');
+assert(fs.existsSync(path.join(componentsDir, 'erp/ERPQuickActions.tsx')), 'ERPQuickActions speed dial widget exists');
+assert(fs.existsSync(path.join(ROOT_DIR, 'frontend/src/utils/exporter.ts')), 'CSV and printable financial exporter utility exists');
+assert(fs.existsSync(path.join(ROOT_DIR, 'frontend/src/services/api.ts')), 'Spring Boot REST backend integration API client exists');
+
 console.log('\n======================================================');
 console.log(` Test Summary: ${passedTests}/${totalTests} Passed`);
 console.log('======================================================\n');

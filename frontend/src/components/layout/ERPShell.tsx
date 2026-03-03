@@ -3,6 +3,7 @@ import { ERPSidebar } from './ERPSidebar';
 import { ERPTopBar } from './ERPTopBar';
 import { ERPCommandCenter } from '../overlay/ERPCommandCenter';
 import { KeyboardShortcutsModal } from '../overlay/KeyboardShortcutsModal';
+import { ERPQuickActions } from '../erp/ERPQuickActions';
 import { NavItemKey, UserRole, UserProfile } from '../../types';
 
 interface ERPShellProps {
@@ -107,6 +108,9 @@ export const ERPShell: React.FC<ERPShellProps> = ({
           {children}
         </main>
       </div>
+
+      {/* Floating Speed Dial Quick Action Widget */}
+      <ERPQuickActions onNavigate={onNavigate} />
 
       {/* Global Command Center Overlay (Ctrl+K or /) */}
       <ERPCommandCenter
